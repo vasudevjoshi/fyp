@@ -18,10 +18,12 @@ def search():
 
     query_embedding = get_embedding(data["query"])
 
-    results = vector_search(collection, query_embedding)
+    try:
 
-    response = generate_response(results, data["query"])
-
-    return jsonify({
-        "response": response
-    }), 200
+        results = vector_search(collection, query_embedding)
+        response = generate_response(results, data["query"])    
+        return jsonify({
+            "response": response
+        }), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
