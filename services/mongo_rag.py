@@ -11,17 +11,6 @@ embeddings = HuggingFaceEmbeddings(
 def get_embedding(text):
     return embeddings.embed_query(text)
 
-# -------------------------------
-# MongoDB connection
-# -------------------------------
-MONGO_URI = "mongodb+srv://vasujoshi2003:geMwRZEUuyLfJA6y@cluster0.1vqee.mongodb.net/?appName=Cluster0"
-DB_NAME = "rag_db"
-COLLECTION_NAME = "vectors"
-
-# Connect to your MongoDB deployment
-# commenting for sometime
-# client = MongoClient("mongodb+srv://vasujoshi2003:geMwRZEUuyLfJA6y@cluster0.1vqee.mongodb.net/?appName=Cluster0")
-# collection =  client["rag_db"]["vectors"]
 
 is_index_created = False
 client = MongoClient(MONGO_URI)
