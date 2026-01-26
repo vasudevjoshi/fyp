@@ -6,3 +6,6 @@ langchain-text-splitters
 sentence-transformers
 python-dotenv
 langchain_huggingface
+requests
+groq
+flask
