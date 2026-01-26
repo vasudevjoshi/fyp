@@ -11,5 +11,5 @@ def health():
     client.admin.command("ping")
     return {"status": "MongoDB connected"}
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# if __name__ == "__main__":
+#     app.run(debug=True)
