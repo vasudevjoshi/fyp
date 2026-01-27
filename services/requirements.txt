@@ -5,3 +5,4 @@ groq
 flask
 gunicorn
 requests
+huggingface-hub
