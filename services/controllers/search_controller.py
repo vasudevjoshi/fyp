@@ -19,8 +19,9 @@ def search():
     query_embedding = get_embedding(data["query"])
 
     try:
-
+        print("query embedding", query_embedding)
         results = vector_search(collection, query_embedding)
+        print("vector searched with results", results)
         response = generate_response(results, data["query"])    
         return jsonify({
             "response": response
