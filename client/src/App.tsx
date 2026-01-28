@@ -1,0 +1,34 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+import LoginPage from './pages/LoginPage';
+import UserLogin from './pages/UserLogin';
+import ExpertLogin from './pages/ExpertLogin';
+import UserDashboard from './pages/UserDashboard';
+import ExpertDashboard from './pages/ExpertDashboard';
+import LogoutPage from './pages/LogoutPage';
+import './index.css';
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        {/* Public Pages */}
+        <Route path="/" element={<LandingPage />} />
+        
+        {/* Login Flow */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login/user" element={<UserLogin />} />
+        <Route path="/login/expert" element={<ExpertLogin />} />
+        
+        {/* Dashboards */}
+        <Route path="/dashboard/user" element={<UserDashboard />} />
+        <Route path="/dashboard/expert" element={<ExpertDashboard />} />
+        
+        {/* Logout */}
+        <Route path="/logout" element={<LogoutPage />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
