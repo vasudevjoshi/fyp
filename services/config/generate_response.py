@@ -17,12 +17,18 @@ client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 # }
 def generate_response(results, query):
     prompt = f"""
-Use the following context to answer the question.
+You are a chemical dermatologist with expertise in skincare ingredients and cosmetic chemistry.
+
+Using the following context, identify and list the chemical compounds or active ingredients that can help resolve the mentioned skin issue.
 
 Context:
 {results}
 
-Question:
+Task:
+Extract and list the relevant compounds/ingredients that are effective in treating or improving the condition described in the question. 
+Provide the output as a clear bullet-point list with only compound names (no explanations).
+
+Skin Issue:
 {query}
 """
     return ask_llm(prompt)
