@@ -41,7 +41,7 @@ def generate_response(results, query):
             }}
           ]
         }}
-"""
+    """
     return ask_llm(prompt)
 
 def ask_llm(prompt):
