@@ -16,7 +16,8 @@ client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 #     "Content-Type": "application/json"
 # }
 def generate_response(results, query):
-    prompt = f"""You are a chemical dermatologist with expertise in skincare ingredients and cosmetic chemistry.
+   prompt = """
+You are a chemical dermatologist with expertise in skincare ingredients and cosmetic chemistry.
 
 Using the following context, identify the chemical compounds or active ingredients that can help resolve the given skin issue.
 
@@ -27,22 +28,21 @@ Task:
 Extract the relevant compounds/ingredients effective for the skin condition.
 For each compound:
 - Provide the compound name
-- Provide a one-line explanation of why it is used (mechanism or benefit)
+- Provide a one-line explanation of why it is used
 
 Return the response strictly in the following JSON format and nothing else:
 
-{
-  "skin_issue": "<skin issue from the query>",
-  "recommended_compounds": 
-    {
+{{
+  "skin_issue": "{query}",
+  "recommended_compounds": [
+    {{
       "compound_name": "<name>",
       "reason": "<one-line explanation>"
-    }  
-}
-
-Skin Issue:
-{query}
+    }}
+  ]
+}}
 """
+
     return ask_llm(prompt)
 
 
